@@ -1,0 +1,19 @@
+mutation UpdateCardVoters($constituencyId: Int!, $cardVoters: Int!, $timeAt: Int!) {
+  updateCardVoters(constituencyId: $constituencyId, cardVoters: $cardVoters, timeAt: $timeAt) {
+    constituency {
+      id
+      adress
+      electorate
+      votersAt14
+      votersAt17
+      cardVotersAt14
+      cardVotersAt17
+      operator {
+        username
+      }
+      createdAt
+      updatedAt
+    }
+    error
+  }
+}

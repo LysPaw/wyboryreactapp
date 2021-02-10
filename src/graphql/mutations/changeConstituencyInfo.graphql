@@ -1,0 +1,13 @@
+mutation ChangeConstituencyInfo($constituencyId: Int!, $newAdress: String!, $electorate: Int!) {
+  changeConstituencyInfo(constituencyId: $constituencyId, newAdress: $newAdress, electorate: $electorate) {
+    constituency {
+      id
+      adress
+      electorate
+    }
+    errors {
+      field
+      message
+    }
+  }
+}

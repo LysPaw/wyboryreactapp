@@ -1,0 +1,26 @@
+mutation ChangeUserInfoData(
+  $userType: Boolean!
+  $id: Int!
+  $username: String!
+  $firstName: String!
+  $secondName: String
+  $lastName: String!
+  $phoneNumber: String
+  $emailAdress: String
+) {
+  changeUserInfoData(
+    userType: $userType
+    id: $id
+    username: $username
+    firstName: $firstName
+    secondName: $secondName
+    lastName: $lastName
+    phoneNumber: $phoneNumber
+    emailAdress: $emailAdress
+  ) {
+    ...RegularUser
+    firstName
+    secondName
+    lastName
+  }
+}

@@ -1,0 +1,18 @@
+query GetListOfConstituencies {
+  getListOfConstituencies {
+    id
+    adress
+    electorate
+    votersAt14
+    votersAt17
+    cardVotersAt14
+    cardVotersAt17
+    finalReport
+    operator {
+      id
+      username
+      firstName
+      lastName
+    }
+  }
+}

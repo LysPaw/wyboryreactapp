@@ -1,0 +1,8 @@
+mutation AssignOperator($userId: Int!, $constituencyId: Int!) {
+  assignOperator(userId: $userId, constituencyId: $constituencyId) {
+    constituency {
+      id
+      adress
+    }
+  }
+}

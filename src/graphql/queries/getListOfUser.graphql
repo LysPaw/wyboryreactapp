@@ -1,0 +1,14 @@
+query GetListOfUser {
+  getListOfUser {
+    users {
+      ...RegularUser
+      firstName
+      secondName
+      lastName
+      constituenciesIds
+    }
+    unregisteredUsers {
+      ...RegularPreActivatedUser
+    }
+  }
+}

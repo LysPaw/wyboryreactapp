@@ -1,0 +1,10 @@
+fragment RegularPreActivatedUser on PreActivatedUser {
+  id
+  username
+  phoneNumber
+  emailAdress
+  activationCode
+  firstName
+  secondName
+  lastName
+}

@@ -1,0 +1,8 @@
+mutation ClearAssignedOperator($constituencyId: Int!) {
+  clearAssignedOperator(constituencyId: $constituencyId) {
+    constituency {
+      id
+      adress
+    }
+  }
+}

@@ -1,0 +1,7 @@
+query GetReports($operatorId: Int) {
+  getReports(operatorId: $operatorId) {
+    id
+    adress
+    report
+  }
+}

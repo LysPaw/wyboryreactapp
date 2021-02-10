@@ -1,0 +1,9 @@
+mutation SaveProtocol($constituencyId: Int!, $finalReport: String!) {
+  saveProtocol(constituencyId: $constituencyId, finalReport: $finalReport) {
+    constituency {
+      id
+      finalReport
+    }
+    error
+  }
+}

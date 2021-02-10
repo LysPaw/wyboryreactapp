@@ -1,0 +1,24 @@
+mutation CreateNewUser(
+  $username: String!
+  $firstName: String!
+  $secondName: String
+  $lastName: String!
+  $phoneNumber: String
+  $emailAdress: String
+) {
+  createNewUser(
+    username: $username
+    firstName: $firstName
+    secondName: $secondName
+    lastName: $lastName
+    phoneNumber: $phoneNumber
+    emailAdress: $emailAdress
+  ) {
+    errors {
+      ...RegularError
+    }
+    preActiveUser {
+      ...RegularPreActivatedUser
+    }
+  }
+}

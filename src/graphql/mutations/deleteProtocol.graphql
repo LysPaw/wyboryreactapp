@@ -1,0 +1,8 @@
+mutation DeleteProtocol($constituencyId: Int!) {
+  deleteProtocol(constituencyId: $constituencyId) {
+    constituency {
+      id
+    }
+    error
+  }
+}

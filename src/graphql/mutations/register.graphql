@@ -1,0 +1,5 @@
+mutation Register($username: String!, $activationCode: String!, $password: String!) {
+  register(username: $username, activationCode: $activationCode, password: $password) {
+    ...RegularUserResponse
+  }
+}

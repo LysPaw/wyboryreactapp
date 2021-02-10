@@ -1,0 +1,18 @@
+mutation CreateNewConstituency($id: Int!, $electorate: Int!, $adress: String!) {
+  createNewConstituency(id: $id, electorate: $electorate, adress: $adress) {
+    constituency {
+      id
+      adress
+      electorate
+      operator {
+        username
+      }
+      createdAt
+      updatedAt
+    }
+    errors {
+      field
+      message
+    }
+  }
+}

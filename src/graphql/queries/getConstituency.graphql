@@ -1,0 +1,12 @@
+query GetConstituency {
+  getConstituency {
+    id
+    adress
+    electorate
+    votersAt14
+    votersAt17
+    cardVotersAt14
+    cardVotersAt17
+    finalReport
+  }
+}

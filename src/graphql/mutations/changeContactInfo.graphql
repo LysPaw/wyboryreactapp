@@ -1,0 +1,5 @@
+mutation changeContactInfo($phoneNumber: String, $emailAdress: String) {
+  changeContactInfo(phoneNumber: $phoneNumber, emailAdress: $emailAdress) {
+    ...RegularUserResponse
+  }
+}
