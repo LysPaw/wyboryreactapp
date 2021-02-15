@@ -20,7 +20,7 @@ const errorExchange: Exchange = ({ forward }) => (ops$) => {
 };
 
 export const createUrqlClient = (ssrExchange: any) => ({
-  url: 'http://localhost:5000/graphql',
+  url: process.env.NEXT_PUBLIC_API_URL as string,
   fetchOptions: {
     credentials: 'include' as const,
   },
