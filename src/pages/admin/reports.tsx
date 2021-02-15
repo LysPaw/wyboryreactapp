@@ -62,7 +62,9 @@ const Reports = () => {
               electorate: _summaryData.electorate + c.electorate,
               attendance14: _summaryData.attendance14 + (c.cardVotersAt14 ? c.cardVotersAt14 : 0),
               attendance17: _summaryData.attendance17 + (c.cardVotersAt17 ? c.cardVotersAt17 : 0),
-              attendanceEnd: _summaryData.attendanceEnd + (parsedReport?.a2 ? parseInt(parsedReport.a2) : 0),
+              attendanceEnd:
+                _summaryData.attendanceEnd +
+                (parsedReport?.a2 && parsedReport?.a4 ? parseInt(parsedReport.a4) / parseInt(parsedReport.a2) : 0),
               maxAttendance14: _summaryData.maxAttendance14 + (c.votersAt14 ? c.votersAt14 : 0),
               maxAttendance17: _summaryData.maxAttendance17 + (c.votersAt17 ? c.votersAt17 : 0),
             };
@@ -117,12 +119,12 @@ const Reports = () => {
           reports: _summaryData.reports,
           electorate: _summaryData.electorate,
           attendance14: _summaryData.attendance14
-            ? (_summaryData.attendance14 / _summaryData.maxAttendance14) * 100
+            ? (((_summaryData.attendance14 / _summaryData.maxAttendance14) * 1) / _summaryData.reports) * 100
             : 0,
           attendance17: _summaryData.attendance17
-            ? (_summaryData.attendance17 / _summaryData.maxAttendance17) * 100
+            ? (((_summaryData.attendance17 / _summaryData.maxAttendance17) * 1) / _summaryData.reports) * 100
             : 0,
-          attendanceEnd: _summaryData.attendanceEnd ? (_summaryData.attendanceEnd / _summaryData.electorate) * 100 : 0,
+          attendanceEnd: _summaryData.attendanceEnd ? (_summaryData.attendanceEnd / _summaryData.reports) * 100 : 0,
         });
       }
     }
