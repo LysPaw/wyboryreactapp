@@ -116,9 +116,13 @@ const Reports = () => {
         setSummaryData({
           reports: _summaryData.reports,
           electorate: _summaryData.electorate,
-          attendance14: (_summaryData.attendance14 / _summaryData.maxAttendance14) * 100,
-          attendance17: (_summaryData.attendance17 / _summaryData.maxAttendance17) * 100,
-          attendanceEnd: (_summaryData.attendanceEnd / _summaryData.electorate) * 100,
+          attendance14: _summaryData.attendance14
+            ? (_summaryData.attendance14 / _summaryData.maxAttendance14) * 100
+            : 0,
+          attendance17: _summaryData.attendance17
+            ? (_summaryData.attendance17 / _summaryData.maxAttendance17) * 100
+            : 0,
+          attendanceEnd: _summaryData.attendanceEnd ? (_summaryData.attendanceEnd / _summaryData.electorate) * 100 : 0,
         });
       }
     }
@@ -169,9 +173,9 @@ const Reports = () => {
                 flex="1">
                 <Box flex="1">{summaryData.reports}</Box>
                 <Box flex="1">{summaryData.electorate}</Box>
-                <Box flex="1">{summaryData.attendance14.toFixed(2)}%</Box>
-                <Box flex="1">{summaryData.attendance17.toFixed(2)}%</Box>
-                <Box flex="1">{summaryData.attendanceEnd.toFixed(2)}%</Box>
+                <Box flex="1">{summaryData.attendance14 !== 0 ? summaryData.attendance14.toFixed(2) : '-'}%</Box>
+                <Box flex="1">{summaryData.attendance17 !== 0 ? summaryData.attendance17.toFixed(2) : '-'}%</Box>
+                <Box flex="1">{summaryData.attendanceEnd !== 0 ? summaryData.attendanceEnd.toFixed(2) : '-'}%</Box>
               </Flex>
             </Flex>
             {reportError.length === 0 ? (
