@@ -62,7 +62,7 @@ const Panel = () => {
       <Box color="white">
         <Flex flexWrap="wrap">
           <Box flex="1" pb="5px">
-            {displayHelperTable('12:00:00', '/panel/report-14')}
+            {displayHelperTable('14:00:00', '/panel/report-14')}
           </Box>
           <Box flex="1">{displayHelperTable('17:00:00', '/panel/report-17')}</Box>
         </Flex>
