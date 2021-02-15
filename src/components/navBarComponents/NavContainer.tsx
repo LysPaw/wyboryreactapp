@@ -45,6 +45,7 @@ export const NavContainer: React.FC<IProps> = ({ display, menuContent, logoutFnc
             onClick={async () => {
               await logoutFnc();
               await router.push('/');
+              await router.reload();
             }}
             style={{ borderTop: '1px solid rgba(108, 122, 137, .6)', padding: '2px 1px', marginTop: '2px' }}>
             <Box w="100%" textAlign="left" padding="6px 10px" _hover={{ bg: 'rgb(226, 226, 226)' }}>

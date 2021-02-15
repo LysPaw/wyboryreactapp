@@ -67,7 +67,7 @@ export const NavBar = () => {
             { href: '/contact/help', name: 'Contact administator' },
             { href: '/contact/techhelp', name: 'Technical support' },
           ]
-        : [{ href: '/contact/techhelp', name: 'Technical support' }];
+        : [{ href: '/admin/techhelp', name: 'Technical support' }];
 
     body = (
       <Flex>
