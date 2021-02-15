@@ -16,6 +16,7 @@ import returnStringFromKeyAdminReports, {
 
 type ISummaryData = {
   reports: number;
+  completedReports: number;
   electorate: number;
   attendance14: number;
   attendance17: number;
@@ -38,6 +39,7 @@ const Reports = () => {
   const [reportError, setReportError] = useState<string[]>([]);
   const [summaryData, setSummaryData] = useState<ISummaryData>({
     reports: 0,
+    completedReports: 0,
     electorate: 0,
     attendance14: 0,
     attendance17: 0,
@@ -59,14 +61,18 @@ const Reports = () => {
 
             _summaryData = {
               reports: _summaryData.reports + 1,
+              completedReports:
+                c.cardVotersAt14 && c.cardVotersAt17
+                  ? _summaryData.completedReports + 1
+                  : _summaryData.completedReports,
               electorate: _summaryData.electorate + c.electorate,
-              attendance14: _summaryData.attendance14 + (c.cardVotersAt14 ? c.cardVotersAt14 : 0),
-              attendance17: _summaryData.attendance17 + (c.cardVotersAt17 ? c.cardVotersAt17 : 0),
+              attendance14: _summaryData.attendance14 + (c.cardVotersAt14 && c.cardVotersAt17 ? c.cardVotersAt14 : 0),
+              attendance17: _summaryData.attendance17 + (c.cardVotersAt14 && c.cardVotersAt17 ? c.cardVotersAt17 : 0),
               attendanceEnd:
                 _summaryData.attendanceEnd +
                 (parsedReport?.a2 && parsedReport?.a4 ? parseInt(parsedReport.a4) / parseInt(parsedReport.a2) : 0),
-              maxAttendance14: _summaryData.maxAttendance14 + (c.votersAt14 ? c.votersAt14 : 0),
-              maxAttendance17: _summaryData.maxAttendance17 + (c.votersAt17 ? c.votersAt17 : 0),
+              maxAttendance14: _summaryData.maxAttendance14 + (c.votersAt14 && c.votersAt17 ? c.votersAt14 : 0),
+              maxAttendance17: _summaryData.maxAttendance17 + (c.votersAt14 && c.votersAt17 ? c.votersAt17 : 0),
             };
 
             return {
@@ -117,12 +123,13 @@ const Reports = () => {
       if (_summaryData.reports > 0) {
         setSummaryData({
           reports: _summaryData.reports,
+          completedReports: _summaryData.completedReports,
           electorate: _summaryData.electorate,
           attendance14: _summaryData.attendance14
-            ? (((_summaryData.attendance14 / _summaryData.maxAttendance14) * 1) / _summaryData.reports) * 100
+            ? (((_summaryData.attendance14 / _summaryData.maxAttendance14) * 1) / _summaryData.completedReports) * 100
             : 0,
           attendance17: _summaryData.attendance17
-            ? (((_summaryData.attendance17 / _summaryData.maxAttendance17) * 1) / _summaryData.reports) * 100
+            ? (((_summaryData.attendance17 / _summaryData.maxAttendance17) * 1) / _summaryData.completedReports) * 100
             : 0,
           attendanceEnd: _summaryData.attendanceEnd ? (_summaryData.attendanceEnd / _summaryData.reports) * 100 : 0,
         });
